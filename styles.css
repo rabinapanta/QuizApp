@@ -1,0 +1,156 @@
+/* Name: Rabina Panta
+Student ID: C0920331 */
+/* style for the container where there will be quiz questions and options */
+body {
+  width: 80%;
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  align-items: center;
+  justify-content: center;
+  background-color: rgb(238, 235, 235);
+
+}
+
+h1 {
+
+  justify-content: center;
+  display: flex;
+}
+
+.quiz-container {
+  background-color: rgb(249, 255, 255);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+}
+
+/* style for the div in which there will be questions */
+.question {
+  margin-bottom: 20px;
+  background-color: rgb(169, 173, 171);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* styles for questions */
+.question h2 {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+}
+
+.visible {
+  opacity: 1;
+}
+
+.options {
+  list-style: none;
+  padding: 0;
+  border: deepskyblue;
+}
+
+/* style for options */
+.options li {
+  margin-bottom: 10px;
+  background: linear-gradient(to right, #616875, rgb(168, 174, 174));
+
+  border-radius: 6px;
+  padding: 10px;
+  cursor: pointer;
+  color: black;
+  transition: background 0.3s ease;
+}
+
+/* style to hover the options */
+.options li:hover {
+  background: linear-gradient(to right, rgb(168, 174, 174), #616875);
+}
+
+.options li label {
+  cursor: pointer;
+  padding: 10px;
+  display: inline-block;
+}
+
+
+/* Style for Animation for highlighting correct ans */
+.options li input[type="radio"]:checked+label.correct {
+  background-color: #42e342;
+  width: 97.3%;
+  color: #f9f7f7;
+  border-radius: 5px;
+  /* 1s duration, infinite loop */
+}
+
+label {
+  width: 100%;
+}
+
+/* Style for Animation for highlighting incorrect ans */
+.options li input[type="radio"]:checked+label.incorrect {
+  background-color: #ff0000;
+  width: 97.3%;
+  color: #f9f7f7;
+  border-radius: 5px;
+}
+
+/* Hide default radio */
+input[type='radio'] {
+  position: absolute;
+  opacity: 0;
+  pointer-events: none;
+}
+
+button {
+  background-color: #3498db;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 5px;
+  border: none;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+button:hover{
+  background-color: #043b60;
+}
+
+.btn {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: space-around;
+}
+
+@media screen and (max-width:600px) {
+  .quiz-container {
+    grid-template-columns: 1fr;
+  }
+
+}
+/* Define the animation */
+@keyframes textAnimation {
+  0% {
+    transform: scale(1);
+    color: #333; /* Initial color */
+  }
+  50% {
+    transform: scale(1.1);
+    color: #e52e71; /* Color change at 50% */
+  }
+  100% {
+    transform: scale(1);
+    color: #333; /* Back to original color */
+  }
+}
+
+/* Apply animation to the heading */
+.animate-heading {
+  animation-name: textAnimation;
+  animation-duration: 2s; /* Animation duration */
+  animation-iteration-count: infinite; /* Loop the animation */
+  animation-timing-function: ease-in-out; /* Animation timing function */
+}
